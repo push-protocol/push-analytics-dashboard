@@ -6,7 +6,7 @@ const DataContext = createContext<any>({});
 const DataProvider = ({ children }: { children: any }) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
   const [token, setToken] = useState<string>(
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidXNlciIsImlhdCI6MTY3MDIzMTIzOCwiZXhwIjoxNjcwMzE3NjM4fQ.myJCWurhb5P5LWORYNiL3cd8pxDdK9yvVs19IbIon0A'
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidXNlciIsImlhdCI6MTY3MDM4NjUyOSwiZXhwIjoxNjcwNDcyOTI5fQ.r6-zAFbiS95ULoMcxonSp4Ldb9Bv3sI5KSDm7IjH-pQ'
   );
 
   useEffect(() => {
