@@ -19,7 +19,7 @@ const Home = () => {
     >
       <ChainAlertBar
         bannerText="Governance Proposal is Live! Vote today to bring Push Chain to reality."
-        bannerURL="https://gov.push.org"
+        bannerURL="https://gov.push.org/t/introducing-push-chain-a-shared-state-l1-for-universal-apps/1991"
         bannerTextPrefix="Push Chain"
         prefixURL="https://push.org/chain"
       />

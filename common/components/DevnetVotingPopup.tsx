@@ -139,7 +139,10 @@ const NotificationItem: FC<NotificationProps> = ({
         <VoteButton
           onClick={() => {
             localStorage.setItem('chainNotificationShown', 'true');
-            window.open('https://gov.push.org', '_blank');
+            window.open(
+              'https://gov.push.org/t/introducing-push-chain-a-shared-state-l1-for-universal-apps/1991',
+              '_blank'
+            );
             toast.dismiss();
           }}
         >
