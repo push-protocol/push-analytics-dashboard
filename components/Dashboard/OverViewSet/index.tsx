@@ -119,7 +119,7 @@ export default function OverViewSet() {
   return (
     <ItemVV2
       width="100%"
-      margin={isMobile ? '25px 0px 30px' : '50px 0px 30px'}
+      margin={isMobile ? '25px 0px 30px' : '10px 0px 30px'}
       alignItems="flex-start"
     >
       <Text size="18px" weight={400} marginBottom="20px">

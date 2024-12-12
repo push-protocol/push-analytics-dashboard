@@ -1,107 +1,92 @@
 // React, NextJS imports
-import React from 'react';
-import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 // External Library imports
-import { useTheme } from 'styled-components';
-
-// Internal Components imports
+import { css } from 'styled-components';
+import { getHeathCheck } from '../../utils/api';
 import {
-  FooterContainer,
-  LinkContainer,
-  LeftContainer,
-  RightContainer,
-} from './footer.styled';
-import { useTheme as Theme } from '../../contexts/ThemeContext';
-import { Text } from '../Reusables/SharedStyling';
-import { ThemeType } from '../../types/theme';
-import PushLogoLight from "../../public/static/push-logo-2.svg";
-import PushLogoDark from "../../public/static/push-logo-1.svg";
-import TwitterIconDark from "../../public/static/twitter-dark.svg";
-import TwitterIconLight from "../../public/static/twitter.svg";
-import GithubIconDark from "../../public/static/github-dark.svg";
-import GithubIconLight from "../../public/static/github.svg";
-import DiscordIconDark from "../../public/static/discord-dark.svg";
-import DiscordIconLight from "../../public/static/discord.svg";
+  Box,
+  Text,
+  TickCircleFilled,
+  CrossFilled,
+  Twitter,
+  Github,
+  Telegram,
+  Discord,
+} from '../../blocks';
 
 export default function Footer() {
-  const { isDarkMode } = Theme();
-  const theme = useTheme() as ThemeType;
+  const [data, setData] = useState(true);
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+
+  useEffect(() => {
+    (async () => {
+      setIsLoading(true);
+      try {
+        const res = await getHeathCheck();
+        setData(res.status === 'OK');
+      } catch (e) {
+        console.log('Error occured', e);
+      }
+      setIsLoading(false);
+    })();
+  }, []);
+
   return (
-    <FooterContainer>
-      <LeftContainer>
-        <a href="https://www.push.org" target={'_blank'} rel={'noreferrer'}>
-          <Image
-            alt="Push Logo"
-            width={125}
-            height={48}
-            src={
-              isDarkMode ? PushLogoDark : PushLogoLight
-            }
-          />
-        </a>
-        <LinkContainer>
-          <a href="https://push.org/tos" target={'_blank'} rel={'noreferrer'}>
-            <Text color={theme.text.link}>Terms</Text>
-          </a>
-          <a
-            href="https://push.org/privacy"
-            target={'_blank'}
-            rel={'noreferrer'}
-          >
-            <Text color={theme.text.link}>Privacy</Text>
-          </a>
-          <a
-            href="https://docs.push.org/hub/"
-            target={'_blank'}
-            rel={'noreferrer'}
-          >
-            <Text color={theme.text.link}>Docs</Text>
-          </a>
-        </LinkContainer>
-      </LeftContainer>
-      <RightContainer>
-        <a
+    <Box
+      display="flex"
+      flexDirection="row"
+      justifyContent="space-between"
+      padding="spacing-md spacing-none"
+      maxWidth="1100px"
+      width="calc(100% - (var(--spacing-sm) * 2))"
+      css={css`
+        flex: initial;
+        margin: 0 auto;
+      `}
+    >
+      <Box display="flex" flexDirection="row" gap="spacing-sm">
+        <Link
           href="https://twitter.com/PushProtocol"
           target={'_blank'}
           rel={'noreferrer'}
         >
-          <Image
-            alt="Twitter"
-            height={24}
-            width={30}
-            src={
-              isDarkMode ? TwitterIconDark : TwitterIconLight
-            }
-          />
-        </a>
-        <a
-          href="https://github.com/ethereum-push-notification-service/"
+          <Twitter color="icon-primary" size={18} />
+        </Link>
+        <Link
+          href="https://github.com/push-protocol/"
           target={'_blank'}
           rel={'noreferrer'}
         >
-          <Image
-            alt="Github"
-            height={26}
-            width={26}
-            src={isDarkMode ? GithubIconDark : GithubIconLight}
-          />
-        </a>
-        <a
+          <Github color="icon-primary" size={20} />
+        </Link>
+        <Link
+          href="https://t.me/epnsproject"
+          target={'_blank'}
+          rel={'noreferrer'}
+        >
+          <Telegram color="icon-primary" size={20} />
+        </Link>
+
+        <Link
           href="https://discord.com/invite/pushprotocol"
           target={'_blank'}
           rel={'noreferrer'}
         >
-          <Image
-            alt="Discord"
-            height={23}
-            width={32}
-            src={
-              isDarkMode ? DiscordIconDark : DiscordIconLight
-            }
-          />
-        </a>
-      </RightContainer>
-    </FooterContainer>
+          <Discord color="icon-primary" size={20} />
+        </Link>
+      </Box>
+      <Box display="flex" flexDirection="row" gap="spacing-xxs">
+        {data ? (
+          <TickCircleFilled color="icon-state-success-bold" />
+        ) : (
+          <CrossFilled color="icon-state-danger-bold" />
+        )}
+        <Text variant="bes-semibold" color="text-tertiary">
+          {data ? 'All systems operational' : 'Not all system are operational'}
+        </Text>
+      </Box>
+    </Box>
   );
 }

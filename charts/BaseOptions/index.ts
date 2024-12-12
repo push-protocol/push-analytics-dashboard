@@ -125,7 +125,7 @@ export default function BaseOptions() {
     // Tooltip
     tooltip: {
       style: {
-        fontFamily: 'Strawford, Helvetica, sans-serif',
+        fontFamily: 'var(--font-family)',
       },
       theme: isDarkMode ? 'dark' : 'light',
       x: {

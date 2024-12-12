@@ -8,12 +8,20 @@ import ArbitrumIcon from '../public/static/arbitrum.svg';
 import FuseIcon from '../public/static/fuse.svg';
 import CyberIcon from '../public/static/cyber.svg';
 
+export const POLL_INTERVAL = 5 * 1000 // 5 seconds
+export const PerPageItems = 15
+
 export const ROUTES = {
-  HOME: '/',
+  HOME: '/home',
   LOGIN: '/login',
-  ERROR: '*',
   ADMIN: '/admin',
   DASHBOARD: '/dashboard',
+  TRANSACTIONS: '/transactions',
+  TRANSACTION_DETAILS: '/transactions/:address',
+  BLOCKS: '/blocks',
+  BLOCKS_DETAILS: '/blocks/:address',
+  SEARCH: '/search/:address',
+  ERROR: '*',
 };
 
 export const DAPP_LINKS = {
@@ -23,11 +31,6 @@ export const DAPP_LINKS = {
 };
 
 export const CHAIN_LIST = [
-  {
-    image: AllChainIcon,
-    chain: 'All Networks',
-    value: 'All',
-  },
   {
     image: EthereumIcon,
     chain: 'Ethereum Mainnet',

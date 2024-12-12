@@ -9,7 +9,7 @@ export const Input = styled.input`
   border: none;
   width: 85%;
   font-size: 18px;
-  font-family: 'Strawford', Helvetica, sans-serif;
+  font-family: var(--font-family);
   padding: 15px 10px;
   margin: 5px 0px;
   background-color: ${(props) => props.theme.background.secondary};

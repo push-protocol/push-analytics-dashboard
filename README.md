@@ -16,10 +16,11 @@ src="https://res.cloudinary.com/drdjegqln/image/upload/v1686227558/Push-Logo-Sta
 <div>
 <h2>
 <br>
-Push Analytics </h1>
+Push Analytics and Push Scan </h1>
 <p>Push Analytics Dashboard is a comprehensive tool designed to provide in-depth insights into the performance and usage of the Push Protocol. This repository hosts the code that powers the analytics component of the Push Protocol, offering a detailed view of various metrics such as the number of subscribers, notifications, channels, and more. The dashboard is an essential tool for understanding the reach and impact of the Push Protocol, providing valuable data that can help guide future development and improvements.
 
 The dashboard is designed with a user-friendly interface, making it easy to navigate and understand the data presented. It provides real-time updates, ensuring you have the most accurate and up-to-date information at your fingertips. Whether you're a developer looking to monitor the performance of your channels, or a user interested in understanding more about your subscriptions, the Push Analytics Dashboard is a powerful resource for all things related to the Push Protocol.</p>
+
 <h3> <a href="https://push.network/">Visit: Push.network 🕸️</a> </h3>
 <br />
 <p align="center">
@@ -40,19 +41,19 @@ The dashboard is designed with a user-friendly interface, making it easy to navi
 ---
 
 ## 📚 Table of Contents
+
 - [Screenshots](#screenshots)
 - [Getting Started](#getting-started)
 - [Contributing](#contributing)
 
 ---
 
-## Screenshots 
+## Screenshots
 
 <h3>June 2023</h3>
 
 ![image](https://github.com/firascodes/push-analytics-dashboard/assets/72166289/f1e7ae48-f400-41e4-b256-50a9c29a02ef)
 ![image](https://github.com/firascodes/push-analytics-dashboard/assets/72166289/e1e02a38-6c6a-43f9-ab9f-f7ac589cfe6e)
-
 
 ---
 
@@ -61,16 +62,19 @@ The dashboard is designed with a user-friendly interface, making it easy to navi
 ### 🖥 Installation
 
 1. Clone the push-analytics-dashboard repository:
+
 ```sh
-git clone https://github.com/ethereum-push-notification-service/push-analytics-dashboard
+git clone https://github.com/push-protocol/push-analytics-dashboard
 ```
 
 2. Change to the project directory:
+
 ```sh
 cd push-analytics-dashboard
 ```
 
 3. Install the dependencies:
+
 ```sh
 npm install
 ```
@@ -82,25 +86,25 @@ npm run dev && node dist/main.js
 ```
 
 ### 🧪 Running Tests
+
 ```sh
 npm test
 ```
 
 ## Contributing
 
-Push Protocol is an open source Project. We firmly believe in a completely transparent development process and value any contributions. We would love to have you as a member of the community, whether you are assisting us in bug fixes, suggesting new features, enhancing our documentation, or simply spreading the word. 
+Push Protocol is an open source Project. We firmly believe in a completely transparent development process and value any contributions. We would love to have you as a member of the community, whether you are assisting us in bug fixes, suggesting new features, enhancing our documentation, or simply spreading the word.
 
 - Bug Report: Please create a bug report if you encounter any errors or problems while utilising the Push Protocol.
 - Feature Request: Please submit a feature request if you have an idea or discover a capability that would make development simpler and more reliable.
 - Documentation Request: If you're reading the Push documentation and believe that we're missing something, please create a docs request.
 
-
-Read how you can contribute <a href="https://github.com/ethereum-push-notification-service/push-analytics-dashboard/blob/main/contributing.md">HERE</a>
+Read how you can contribute <a href="https://github.com/push-protocol/push-analytics-dashboard/blob/main/contributing.md">HERE</a>
 
 Not sure where to start? Join our discord and we will help you get started!
-
 
 <a href="https://discord.gg/pushprotocol" title="Join Our Community"><img src="https://www.freepnglogos.com/uploads/discord-logo-png/playerunknown-battlegrounds-bgparty-15.png" width="200" alt="Discord" /></a>
 
 ## License
-Check out our License <a href='https://github.com/ethereum-push-notification-service/push-analytics-dashboard/blob/main/license-v1.md'>HERE </a>
+
+Check out our License <a href='https://github.com/push-protocol/push-analytics-dashboard/blob/main/license-v1.md'>HERE </a>

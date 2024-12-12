@@ -60,7 +60,7 @@ export const Option = styled.div`
   width: 100%;
   background-color: transparent;
   color: ${({ theme }) => theme.text.secondary};
-  font-family: 'Strawford', Helvetica, sans-serif;
+  font-family: 'var(--font-family)';
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -82,11 +82,14 @@ export const TimeFilterContainer = styled.div`
   padding: 5px;
   align-items: center;
   justify-content: space-between;
+  margin-top: 24px;
   @media (max-width: 480px) {
     width: 100%;
+    margin-top: 0px;
   }
   @media (max-width: 768px) {
     width: 100%;
+    margin-top: 0px;
   }
 `;
 
@@ -95,7 +98,7 @@ export const TimeFilter = styled.button<TimeFilterType>`
   background-color: ${(props) => props.background || '#cf1c84'};
   color: ${(props) => props.color || '#657795'};
   font-weight: ${(props) => props.fontWeight || '500'};
-  font-family: 'Strawford', Helvetica, sans-serif;
+  font-family: 'FK Grotesk Neu';
   font-size: 15px;
   border-radius: 12px;
   min-width: 41px;

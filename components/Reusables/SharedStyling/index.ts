@@ -10,7 +10,7 @@ import {
   ISectionV2Props,
   ISpanV2Props,
   ISkeletonProps,
-  ISkeletonLineProps
+  ISkeletonLineProps,
 } from '../../../types/sharedStyling';
 import { TextType } from '../../../types/otherStyled';
 import { themeLight } from '../../../theme/palette';
@@ -108,8 +108,7 @@ export const ItemVV2 = styled(ItemHV2)`
 
 export const H2V2 = styled.h2<IH2V2Props>`
   color: ${(props) => props.color || themeLight.text.primary};
-  font-family: ${(props) =>
-    props.family || "'Strawford', Helvetica, sans-serif"};
+  font-family: ${(props) => props.family || 'var(--font-family)'};
   font-size: ${(props) => props.fontSize || 'initial'};
   font-weight: ${(props) => props.fontWeight || 'initial'};
   letter-spacing: ${(props) => props.letterSpacing || 'initial'};
@@ -250,7 +249,7 @@ export const DashBoardContainer = styled(ItemVV2)`
 export const Text = styled.p<TextType>`
   font-size: ${(props) => props.size || '15px'};
   font-weight: ${(props) => props.weight || 400};
-  font-family: 'Strawford', Helvetica, sans-serif;
+  font-family: var(--font-family);
   color: ${(props) => props.color || props.theme.text.primary};
   margin-top: ${(props) => props.marginTop || '0px'};
   margin-bottom: ${(props) => props.marginBottom || '0px'};

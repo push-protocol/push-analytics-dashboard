@@ -5,6 +5,7 @@ import axios from 'axios';
 import { CREDENTIALKEYS } from './constants';
 
 const API_BASE = 'https://backend.epns.io/apis/v1';
+const API_ANODE_BASE = 'https://aa1.dev.push.org/';
 
 export const login = async ({ user, pass }) => {
   try {
@@ -126,5 +127,14 @@ export const getUsers = async () => {
     return res.data;
   } catch (e) {
     console.log('error', e);
+  }
+};
+
+export const getHeathCheck = async () => {
+  try {
+    const res = await axios.get(`${API_ANODE_BASE}/health`);
+    return res.data;
+  } catch (e) {
+    console.log('Error occured in health-check', e);
   }
 };

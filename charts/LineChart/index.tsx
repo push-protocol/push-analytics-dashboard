@@ -55,7 +55,7 @@ export default function Chart({
         // autoScaleYaxis: true,
       },
       offsetX: -10,
-      fontFamily: 'Strawford, Helvetica, sans-serif',
+      fontFamily: 'var(--font-family)',
     },
     yaxis: {
       axisTicks: {
@@ -67,7 +67,7 @@ export default function Chart({
       labels: {
         style: {
           fontSize: '12px',
-          fontFamily: 'Strawford, Helvetica, sans-serif',
+          fontFamily: 'var(--font-family)',
           colors: theme.graph.primaryLabel,
         },
       },
@@ -82,7 +82,7 @@ export default function Chart({
         hideOverlappingLabels: true,
         style: {
           fontSize: '12px',
-          fontFamily: 'Strawford, Helvetica, sans-serif',
+          fontFamily: 'var(--font-family)',
           colors: theme.graph.primaryLabel,
         },
         datetimeFormatter: {
@@ -130,7 +130,7 @@ export default function Chart({
         alignItems="flex-start"
         justifyContent="flex-start"
         height="auto"
-        width="100%"
+        width="-webkit-fill-available"
         background={isMobile ? 'transparent' : theme.background.card}
         border={`1px solid ${theme.background.border}`}
         borderRadius="28px"

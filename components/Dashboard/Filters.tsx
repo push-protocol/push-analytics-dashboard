@@ -326,6 +326,7 @@ const Searchbar = styled.input`
 
 const FirstFilterContainer = styled(ItemHV2)`
 justify-content:flex-start;
+margin-top:24px;
 @media(max-width:480px){
   width: 100%;
   justify-content: space-between;

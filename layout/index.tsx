@@ -1,19 +1,25 @@
 // React, NextJS imports
 import React from 'react';
 
-// External Library imports
-import { Grid } from '@mui/material';
-
 // Internal Components imports
+import { Box } from '../blocks';
+import { ContentLayout } from '../common'
 import FooterSection from '../sections/Footer';
 import HeaderSection from '../sections/Header';
 
 export default function Layout({ children }) {
   return (
-    <Grid width="100%">
+    <Box
+      display="flex"
+      flexDirection="column"
+      gap="spacing-lg"
+      minHeight="100vh"
+    >
       <HeaderSection />
-      {children}
+      <ContentLayout>
+        {children}
+      </ContentLayout>
       <FooterSection />
-    </Grid>
+    </Box>
   );
 }

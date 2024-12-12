@@ -1,148 +1,119 @@
 // React, NextJS imports
 import React from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 // External Library imports
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
-import { Box, Button, useMediaQuery } from '@mui/material';
-import { useTheme } from 'styled-components';
+import { css } from 'styled-components';
 
 // Internal Components imports
-import Logo from '../Logo';
 import { useTheme as Theme } from '../../contexts/ThemeContext';
-import { useData } from '../../contexts/DataContext';
-import { ROUTES, CREDENTIALKEYS } from '../../utils/constants';
-import { Text } from '../Reusables/SharedStyling';
-import { ItemHV2, ItemVV2 } from '../../components/Reusables/SharedStyling';
-import { NavBarButtons } from './NavBarButtons';
-import {
-  NavbarContainer,
-  HamburgerLine,
-  SidebarContainer,
-} from './navbar.styled';
-import { ThemeType } from '../../types/theme';
+import { Box, Text, Lozenge, PushLogo } from '../../blocks';
+import SearchBar from '../Home/SearchBar';
 
 export default function Navbar() {
   const { isDarkMode, darkModeToggle } = Theme();
-  const { isLoggedIn, setIsLoggedIn, token } = useData();
-  const router = useRouter();
-  const theme = useTheme() as ThemeType;
-  const isMobile = useMediaQuery('(max-width:480px)');
-  const isSmall = useMediaQuery('(max-width:1024px)');
-  const { asPath } = useRouter();
-  const [showSidebar, setShowSidebar] = React.useState<boolean>(false);
 
-  const logout = () => {
-    setIsLoggedIn?.(false);
-    sessionStorage.setItem(CREDENTIALKEYS.LOGINCHECK, '' + false);
-    sessionStorage.setItem(CREDENTIALKEYS.TOKEN, '');
-    router.push(ROUTES.LOGIN);
-  };
+  const router = useRouter();
+  const { asPath } = useRouter();
 
   return (
-    <NavbarContainer>
-      <ItemHV2 alignItems="center" justifyContent="flex-start">
-        <Logo
-          src="./static/push-icon.svg"
-          sx={{
-            width: isMobile ? 38 : 54,
-            height: isMobile ? 39 : 56,
-            margin: isMobile ? '33px 10px 33px 0px' : '39px 10px 33px 0px',
-          }}
-        />
-        <ItemVV2 alignItems="flex-start" justifyContent="center">
-          <Text size={isMobile ? '24px' : '32px'} weight="500">
-            Push Snapshots
-          </Text>
-          {!isMobile && (
-            <Text size="15px" color={theme.text.secondary} weight="400">
-              Explore trends, activity and track growth on the Push Network
-            </Text>
-          )}
-        </ItemVV2>
-      </ItemHV2>
-      <ItemHV2 justifyContent="flex-end" alignItems="center">
-        {asPath !== '/dashboard' && !isSmall && (
-          <NavBarButtons logout={logout} isLoggedIn={isLoggedIn} />
-        )}
+    <Box
+      display="flex"
+      flexDirection="column"
+      justifyContent="space-between"
+      alignItems="center"
+      alignSelf="center"
+      padding="spacing-sm spacing-none"
+      maxWidth="1100px"
+      width="calc(100% - (var(--spacing-sm) * 2))"
+      gap="spacing-xs"
+    >
+      <Box
+        alignItems={{ initial: 'center', ml: 'flex-start' }}
+        display="flex"
+        flexDirection="row"
+        justifyContent="space-between"
+        width="100%"
+      >
         <Box
-          sx={{
-            border: '1px solid #BAC4D6',
-            backgroundColor: theme.background.headerIcon,
-            borderRadius: '50%',
-            height: '50px',
-            width: '50px',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
+          display="flex"
+          flexDirection="row"
+          alignItems="center"
+          gap="spacing-xs"
         >
+          <Box
+            display="flex"
+            flexDirection={{ initial: 'row', ml: 'column' }}
+            alignItems="center"
+            gap={{ initial: 'spacing-xxxs', ml: 'spacing-none' }}
+            cursor="pointer"
+            onClick={() => router.push('/home')}
+          >
+            <Box display="flex" gap="spacing-xxxs" alignItems="center">
+              <PushLogo height={43} width={43} />
+              <Text variant="h4-regular" color="text-primary">
+                PushScan
+              </Text>
+            </Box>
+
+            <Lozenge
+              size="small"
+              variant="primary"
+              css={css`
+                margin-left: 10px;
+              `}
+            >
+              ALPHA
+            </Lozenge>
+          </Box>
+        </Box>
+
+        <Box
+          display="flex"
+          flexDirection="row"
+          alignItems="center"
+          gap={{ initial: 'spacing-sm', ml: 'spacing-none' }}
+          margin={{ ml: 'spacing-xxs' }}
+        >
+          {/* {asPath !== '/dashboard' && (
+            <Link href="https://push.org/chain/ecosystem" target="_blank">
+              <Text variant="h6-semibold" color="text-primary">
+                App Ecosystem
+              </Text>
+            </Link>
+          )} */}
+
           <DarkModeSwitch
+            style={{ margin: '0 1rem' }}
             checked={isDarkMode}
             onChange={darkModeToggle}
             size={28}
-            sunColor="#575D73"
-            moonColor="#FFFFFF"
+            sunColor="#494D5F"
+            moonColor="#787E99"
           />
-        </Box>
-        {asPath !== '/dashboard' && isSmall && (
-          <ItemVV2
-            alignItems="flex-end"
-            margin="0px 0px 0px 20px"
-            maxWidth="30px"
-            cursor="pointer"
-            onClick={() => setShowSidebar(!showSidebar)}
-          >
-            <HamburgerLine />
-            <HamburgerLine />
-            <HamburgerLine />
-          </ItemVV2>
-        )}
-      </ItemHV2>
 
-      <>
-        {showSidebar && (
-          <SidebarContainer>
-            <Button
-              variant="outlined"
-              style={{
-                marginRight: '5px',
-                color: theme.text.primary,
-                border: 'none',
-              }}
-              onClick={() => {
-                router.push(ROUTES.DASHBOARD);
-              }}
-            >
-              Dashboard
-            </Button>
-            <Button
-              variant="outlined"
-              style={{
-                marginRight: '5px',
-                color: theme.text.primary,
-                border: 'none',
-              }}
-              onClick={() => router.push(ROUTES.ADMIN)}
-            >
-              Admin Panel
-            </Button>
-            {isLoggedIn ? (
-              <Button
-                variant="outlined"
-                style={{
-                  marginRight: '5px',
-                  color: theme.text.primary,
-                  border: 'none',
-                }}
-                onClick={() => logout()}
-              >
-                Logout
-              </Button>
-            ) : null}
-          </SidebarContainer>
+          {asPath !== '/home' && (
+            <Box display={{ initial: 'flex', ml: 'none' }} minWidth="330px">
+              <SearchBar />
+            </Box>
+          )}
+        </Box>
+      </Box>
+      <Box
+        display={{ initial: 'none', ml: 'flex' }}
+        flexDirection="column"
+        gap="spacing-xs"
+        width="-webkit-fill-available"
+      >
+        {asPath === '/home' && (
+          <Text variant="h3-semibold" color="text-primary">
+            Push Blockchain Explorer
+          </Text>
         )}
-      </>
-    </NavbarContainer>
+        <SearchBar />
+      </Box>
+    </Box>
   );
 }

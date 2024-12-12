@@ -34,7 +34,7 @@ const Button = styled(ButtonV2)`
   max-width: 140px;
   font-size: 18px;
   font-weight: 500;
-  font-family: 'Strawford', Helvetica, sans-serif;
+  font-family: 'var(--font-family)';
   border-radius: 10px;
   padding: 10px 10px;
   type: submit;

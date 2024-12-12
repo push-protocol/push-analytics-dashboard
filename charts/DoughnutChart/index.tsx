@@ -40,7 +40,7 @@ const DoughnutChart = ({ data, title, label, value, colorSet }: any) => {
         backgroundColor: theme.background.tooltip,
         textStyle: {
           color: theme.text.primary,
-          fontFamily: 'Strawford, Helvetica, sans-serif',
+          fontFamily: 'var(--font-family)',
         },
         borderWidth: 0,
         borderRadius: 10,
@@ -54,7 +54,7 @@ const DoughnutChart = ({ data, title, label, value, colorSet }: any) => {
         textStyle: {
           color: theme.graph.legendText,
           fontSize: 12,
-          fontFamily: 'Strawford, Helvetica, sans-serif',
+          fontFamily: 'var(--font-family)',
           fontWeight: 500,
         },
         itemWidth: 15,
@@ -90,13 +90,13 @@ const DoughnutChart = ({ data, title, label, value, colorSet }: any) => {
               a: {
                 lineHeight: 15,
                 color: theme.graph.primaryLabel,
-                fontFamily: 'Strawford, Helvetica, sans-serif',
+                fontFamily: 'var(--font-family)',
                 fontSize: '12px',
               },
               b: {
                 fontWeight: 500,
                 color: theme.graph.secondaryLabel,
-                fontFamily: 'Strawford, Helvetica, sans-serif',
+                fontFamily: 'var(--font-family)',
                 fontSize: '14px',
                 lineHeight: 20,
               },
@@ -124,8 +124,6 @@ const DoughnutChart = ({ data, title, label, value, colorSet }: any) => {
     >
       <Card
         sx={{
-          minHeight: '100%',
-          minWidth: '100%',
           backgroundColor: isMobile ? 'transparent' : theme.background.card,
           border: `1px solid ${theme.background.border}`,
           borderRadius: '28px',

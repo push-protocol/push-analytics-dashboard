@@ -3,11 +3,11 @@ import React from 'react';
 
 // External Library imports
 import { Grid, useMediaQuery } from '@mui/material';
+import { Box } from '../../blocks';
 
 // Internal Components imports
 import {
   HorizontalLine,
-  DashBoardContainer,
 } from '../../components/Reusables/SharedStyling';
 import Trending from '../../components/Dashboard/Trending';
 import RecentlyAdded from '../../components/Dashboard/RecentlyAdded';
@@ -19,7 +19,11 @@ import GovernanceSet from '../../components/Dashboard/GovernanceSet';
 const DashBoard = () => {
   const isMobile = useMediaQuery('(max-width:480px)');
   return (
-    <DashBoardContainer>
+    <Box
+      display="flex"
+      flexDirection="column"
+      justifyContent="flex-start"
+    >
       <OverViewSet />
       <Grid
         container
@@ -35,7 +39,7 @@ const DashBoard = () => {
       </Grid>
       <LineChartSet />
       <GovernanceSet />
-    </DashBoardContainer>
+    </Box>
   );
 };
 

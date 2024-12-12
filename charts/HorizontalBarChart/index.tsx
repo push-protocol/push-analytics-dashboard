@@ -49,7 +49,7 @@ export default function HorizontalBarChart({
           window.open(DAPP_LINKS.CHANNELS, '_blank');
         },
       },
-      fontFamily: 'Strawford, Helvetica, sans-serif',
+      fontFamily: 'var(--font-family)',
     },
     plotOptions: {
       bar: {
@@ -90,7 +90,7 @@ export default function HorizontalBarChart({
         },
         style: {
           fontSize: '12px',
-          fontFamily: 'Strawford, Helvetica, sans-serif',
+          fontFamily: 'var(--font-family)',
           colors: theme.graph.primaryLabel,
           cursor: 'pointer',
         },
@@ -111,7 +111,7 @@ export default function HorizontalBarChart({
         },
         style: {
           fontSize: '12px',
-          fontFamily: 'Strawford, Helvetica, sans-serif',
+          fontFamily: 'var(--font-family)',
           colors: theme.graph.primaryLabel,
         },
       },
@@ -147,7 +147,7 @@ export default function HorizontalBarChart({
         alignItems="flex-start"
         justifyContent="flex-start"
         height="auto"
-        width="100%"
+        width="-webkit-fill-available"
         background={isMobile ? 'transparent' : theme.background.card}
         border={`1px solid ${theme.background.border}`}
         borderRadius="28px"
