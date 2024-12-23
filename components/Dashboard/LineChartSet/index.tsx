@@ -188,6 +188,9 @@ export default function LineChartSet() {
     }
   };
 
+  const fallbackNotificationsNumber = 139000000;
+
+  const fallbackSubscriberCount = 300000;
   return (
     <>
       <Grid
@@ -239,7 +242,9 @@ export default function LineChartSet() {
           data={notificationData}
           max={max}
           min={min}
-          total={totalNotifications}
+          total={
+            totalNotifications || fallbackNotificationsNumber.toLocaleString()
+          }
         />
         <HorizontalLine />
         <Subscribers
@@ -247,7 +252,7 @@ export default function LineChartSet() {
           data={subscriberData}
           max={max}
           min={min}
-          total={totalSubscribers}
+          total={totalSubscribers || fallbackSubscriberCount.toLocaleString()}
         />
         <HorizontalBarChart
           title="Subscribers By Channel"

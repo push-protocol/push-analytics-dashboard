@@ -39,6 +39,7 @@ export default function OverViewSet() {
   const { isDarkMode } = getTheme();
   const isMobile = useMediaQuery('(max-width:480px)');
 
+  const fallbackNotificationNumber = 139000000;
   const overViewData = [
     {
       image: !isDarkMode ? IntegrationLightIcon : IntegrationDarkIcon,
@@ -63,7 +64,7 @@ export default function OverViewSet() {
     {
       image: !isDarkMode ? NotificationsLightIcon : NotificationsDarkIcon,
       title: 'Notifications Sent',
-      value: notifiactionsSent,
+      value: notifiactionsSent || fallbackNotificationNumber.toLocaleString(),
       size: 41,
     },
   ];
