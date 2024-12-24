@@ -188,9 +188,9 @@ export default function LineChartSet() {
     }
   };
 
-  const fallbackNotificationsNumber = 139000000;
+  const fallbackNotificationsNumber = 140902329;
 
-  const fallbackSubscriberCount = 300000;
+  const fallbackSubscriberCount = 296625;
   return (
     <>
       {/* <Grid
