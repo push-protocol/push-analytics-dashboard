@@ -39,7 +39,9 @@ export default function OverViewSet() {
   const { isDarkMode } = getTheme();
   const isMobile = useMediaQuery('(max-width:480px)');
 
-  const fallbackNotificationNumber = 139000000;
+  const fallbackNotificationNumber = 140902329;
+
+  const fallbackChatNumber = 58834;
   const overViewData = [
     {
       image: !isDarkMode ? IntegrationLightIcon : IntegrationDarkIcon,
@@ -50,7 +52,7 @@ export default function OverViewSet() {
     {
       image: !isDarkMode ? ChatSentLightIcon : ChatSentDarkIcon,
       title: 'Chats Sent',
-      value: chatSent,
+      value: chatSent || fallbackChatNumber.toLocaleString(),
       size: 51,
     },
     // {
