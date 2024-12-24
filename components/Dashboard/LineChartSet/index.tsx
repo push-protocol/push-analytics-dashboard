@@ -193,7 +193,7 @@ export default function LineChartSet() {
   const fallbackSubscriberCount = 300000;
   return (
     <>
-      <Grid
+      {/* <Grid
         item
         display="flex"
         width="100%"
@@ -223,7 +223,7 @@ export default function LineChartSet() {
           handleTimeFilter={handleTimeFilter}
           channelDataLoading={isChannelDataLoading}
         />
-      </Grid>
+      </Grid> */}
       {/* <Box
         sx={{ display: 'flex', width: '100%', justifyContent: 'flex-start' }}
       >
@@ -231,7 +231,7 @@ export default function LineChartSet() {
           Notifications Statistics
         </Text>
       </Box> */}
-      <Grid
+      {/* <Grid
         container
         spacing={isMobile ? 0 : 3}
         justifyContent="flex-start"
@@ -261,15 +261,15 @@ export default function LineChartSet() {
           value={subscriberValues}
           isLoading={isChannelDataLoading}
         />
-        <HorizontalLine />
-        {/* <HorizontalBarChart
+        <HorizontalLine /> */}
+      {/* <HorizontalBarChart
           title="Notifications By Channel"
           label="Notifications"
           category={notificationCategories}
           value={notificationValues}
           isLoading={isChannelDataLoading}
         /> */}
-      </Grid>
+      {/* </Grid> */}
       {/* <Box
         sx={{ display: 'flex', width: '100%', justifyContent: 'flex-start' }}
       >
