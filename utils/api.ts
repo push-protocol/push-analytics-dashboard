@@ -6,6 +6,8 @@ import { CREDENTIALKEYS } from './constants';
 
 const API_BASE = 'https://backend.epns.io/apis/v1';
 
+const ANALYTICS_API_BASE_V2 = 'https://backend.epns.io/apis/v2';
+
 export const login = async ({ user, pass }) => {
   try {
     const res = await axios.post(`${API_BASE}/login`, {
@@ -26,14 +28,17 @@ export const getNotifications = async ({
   chain,
 }) => {
   try {
-    const res = await axios.get(`${API_BASE}/analytics/notification`, {
-      params: {
-        startDate,
-        endDate,
-        channel,
-        source: chain,
-      },
-    });
+    const res = await axios.get(
+      `${ANALYTICS_API_BASE_V2}/analytics/notification`,
+      {
+        params: {
+          startDate,
+          endDate,
+          channel,
+          source: chain,
+        },
+      }
+    );
     // console.log('notifications', res.data);
     return res.data;
   } catch (e) {
