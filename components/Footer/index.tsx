@@ -15,14 +15,14 @@ import {
 import { useTheme as Theme } from '../../contexts/ThemeContext';
 import { Text } from '../Reusables/SharedStyling';
 import { ThemeType } from '../../types/theme';
-import PushLogoLight from "../../public/static/push-logo-2.svg";
-import PushLogoDark from "../../public/static/push-logo-1.svg";
-import TwitterIconDark from "../../public/static/twitter-dark.svg";
-import TwitterIconLight from "../../public/static/twitter.svg";
-import GithubIconDark from "../../public/static/github-dark.svg";
-import GithubIconLight from "../../public/static/github.svg";
-import DiscordIconDark from "../../public/static/discord-dark.svg";
-import DiscordIconLight from "../../public/static/discord.svg";
+import PushLogoLight from '../../public/static/push-logo-2.svg';
+import PushLogoDark from '../../public/static/push-logo-1.svg';
+import TwitterIconDark from '../../public/static/twitter-dark.svg';
+import TwitterIconLight from '../../public/static/twitter.svg';
+import GithubIconDark from '../../public/static/github-dark.svg';
+import GithubIconLight from '../../public/static/github.svg';
+import DiscordIconDark from '../../public/static/discord-dark.svg';
+import DiscordIconLight from '../../public/static/discord.svg';
 
 export default function Footer() {
   const { isDarkMode } = Theme();
@@ -35,9 +35,7 @@ export default function Footer() {
             alt="Push Logo"
             width={125}
             height={48}
-            src={
-              isDarkMode ? PushLogoDark : PushLogoLight
-            }
+            src={isDarkMode ? PushLogoDark : PushLogoLight}
           />
         </a>
         <LinkContainer>
@@ -61,18 +59,12 @@ export default function Footer() {
         </LinkContainer>
       </LeftContainer>
       <RightContainer>
-        <a
-          href="https://twitter.com/PushProtocol"
-          target={'_blank'}
-          rel={'noreferrer'}
-        >
+        <a href="https://x.com/PushChain" target={'_blank'} rel={'noreferrer'}>
           <Image
             alt="Twitter"
             height={24}
             width={30}
-            src={
-              isDarkMode ? TwitterIconDark : TwitterIconLight
-            }
+            src={isDarkMode ? TwitterIconDark : TwitterIconLight}
           />
         </a>
         <a
@@ -96,9 +88,7 @@ export default function Footer() {
             alt="Discord"
             height={23}
             width={32}
-            src={
-              isDarkMode ? DiscordIconDark : DiscordIconLight
-            }
+            src={isDarkMode ? DiscordIconDark : DiscordIconLight}
           />
         </a>
       </RightContainer>
